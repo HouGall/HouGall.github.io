@@ -3,13 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: Hou Gall's blog
+subtitle: '记录生活中的点点滴滴'
+description: '记录生活中的点点滴滴'
+keywords: 学习&记录
+author: Hou Gall
+language: zh-CN
 timezone: ''
+email: 941053666@qq.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
