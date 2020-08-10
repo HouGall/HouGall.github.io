@@ -1,0 +1,55 @@
+---
+title: 剑指 offer 04 数组中重复的数字
+date: 2019-10-26 18:10:18
+tags:
+ - python
+ - 求职
+ - 剑指offer
+categories:
+ - 求职
+mathjax: true
+copyright_info: leetcode 剑指 offer
+copyright_url: https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
+---
+
+
+# 二维数组查找
+>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+>示例：
+>矩阵matrix=
+>[
+  [1,   4,  7, 11, 15],
+  [2,   5,  8, 12, 19],
+  [3,   6,  9, 16, 22],
+  [10, 13, 14, 17, 24],
+  [18, 21, 23, 26, 30]
+]
+给定target = 5，返回 true;
+给定target = 20，返回false.
+
+# 思路
+## 方法一 暴力寻找
+>从数组首位开始，每一行每一列循环寻找target，如果找到返回true，如果循环完没找到返回false。
+>时间复杂度O(mn);空间复杂度O(1)
+
+## 方法二 游走查找
+>考虑到二维表从左到右递增，从上到下递减，所以要砸好一个数可以用两个判断语句控制下标的游走方法，初始化游走的开始节点为数组的右上方**num[0][m] (假设此数组是nxm)**，可以知道此节点数组比同一行的数都大，比同一列的数都小，所以可以判断此数字和target的大小，如果等于targe，返回true；如果大于target，那么可知target比第一行都大，所以初始值向下移一行变为**num[0+1][m]**,如果此时target比此数字小，那么可知target比这一列的数都小，那么列减一变为**num[1][m-1]**，使用这种方法进行游走判断，直到下标跃出数组则返回false。
+
+# 代码
+
+``` python
+class Solution:
+    def findNumberIn2DArray(self, matrix: List[List[int]], target: int) -> bool:
+        row = len(matrix)-1
+        col = 0
+        while (row >=0) and (col <= len(matrix[0])-1):
+            if target < matrix[row][col] :
+                row -=1
+            elif target > matrix[row][col]:
+                col +=1
+            else:
+                return True
+        return False
+```
+
