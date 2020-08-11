@@ -8,7 +8,7 @@ tags:
 categories:
  - 学习资料
 mathjax: true
-opyright_author: MisterBooo
+copyright_author: MisterBooo
 copyright_info: 此文章版权归MisterBooo所有，如有转载，请註明来自原作者
 copyright_url: https://github.com/MisterBooo/LeetCodeAnimation
 ---
