@@ -7,8 +7,6 @@ tags:
 categories:
  - 求职
 mathjax: true
-copyright_info: leetcode 剑指 offer
-copyright_url: https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof/
 ---
 
 # AOP
