@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计算机网络1 | Hou Gall's blog</title><meta name="description" content="概述重点 1.计算机网络是把多个计算机连在一起的网络,互联网是把多个计算机网络连在一起形成的网络,遵守TCP&#x2F;IP协议.2.路由器是实现分组交换的关键构件,其任务是转发收到的分组.分组交换采用存储转发技术.在发送报文之前,将较长的报文被主机平均分成小的数据段,并在每个数据段之前加上必要的控制信息形成首部构成一个分组,分组也成为包;分组时互联网传送的数据单元,分组的首部包含了目的地址,源地址等重要的"><meta name="keywords" content="求职,计算机网络"><meta name="author" content="Hou Gall,941053666@qq.com"><meta name="copyright" content="Hou Gall"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hougall.github.io/2020/08/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="计算机网络1"><meta property="og:url" content="http://hougall.github.io/2020/08/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/"><meta property="og:site_name" content="Hou Gall's blog"><meta property="og:description" content="概述重点 1.计算机网络是把多个计算机连在一起的网络,互联网是把多个计算机网络连在一起形成的网络,遵守TCP&#x2F;IP协议.2.路由器是实现分组交换的关键构件,其任务是转发收到的分组.分组交换采用存储转发技术.在发送报文之前,将较长的报文被主机平均分成小的数据段,并在每个数据段之前加上必要的控制信息形成首部构成一个分组,分组也成为包;分组时互联网传送的数据单元,分组的首部包含了目的地址,源地址等重要的"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-08-23T16:54:32.258Z"><meta property="article:modified_time" content="2020-08-23T16:54:32.258Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-24 00:54:32'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">重点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">2.</span> <span class="toc-text">物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.1.</span> <span class="toc-text">基本术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9-1"><span class="toc-number">2.2.</span> <span class="toc-text">重点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">3.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">4.</span> <span class="toc-text">网络层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9-2"><span class="toc-number">4.1.</span> <span class="toc-text">重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80%E5%92%8C%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">4.2.</span> <span class="toc-text">IP地址和物理地址的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E8%BE%93%E5%B1%82"><span class="toc-number">5.</span> <span class="toc-text">运输层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE"><span class="toc-number">5.1.</span> <span class="toc-text">UDP(用户数据报协议)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE"><span class="toc-number">5.2.</span> <span class="toc-text">TCP(传输控制协议)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="toc-number">5.3.</span> <span class="toc-text">拥塞控制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">6.</span> <span class="toc-text">应用层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E7%82%B9-3"><span class="toc-number">6.1.</span> <span class="toc-text">重点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">6.2.</span> <span class="toc-text">三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">6.3.</span> <span class="toc-text">四次挥手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARQ%E5%8D%8F%E8%AE%AE%E6%98%AF%E8%87%AA%E5%8A%A8%E5%9B%9E%E4%BC%A0%E5%8D%8F%E8%AE%AE%EF%BC%8C%E5%9C%A8TCP%E4%B8%AD"><span class="toc-number">6.4.</span> <span class="toc-text">ARQ协议是自动回传协议，在TCP中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ARP%E5%8D%8F%E8%AE%AE%E6%98%AF%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2%E5%8D%8F%E8%AE%AE%EF%BC%8C%E5%9C%A8IP%E5%B1%82"><span class="toc-number">6.5.</span> <span class="toc-text">ARP协议是地址转换协议，在IP层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E4%B8%8D%E4%BF%9D%E5%AD%98%E7%8A%B6%E6%80%81%EF%BC%8C%E6%98%AF%E4%BD%BF%E7%94%A8session%E6%9C%BA%E5%88%B6%E8%BF%9B%E8%A1%8C%E7%8A%B6%E6%80%81%E4%BF%9D%E5%AD%98"><span class="toc-number">6.6.</span> <span class="toc-text">HTTP协议不保存状态，是使用session机制进行状态保存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session%E5%92%8Ccookie%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.7.</span> <span class="toc-text">session和cookie的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http%E5%92%8Chttps%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.8.</span> <span class="toc-text">http和https的区别</span></a></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hou Gall's blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">计算机网络1</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T16:54:32.258Z" title="发表于 2020-08-24 00:54:32">2020-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T16:54:32.258Z" title="更新于 2020-08-24 00:54:32">2020-08-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h2><blockquote>
+<p>1.计算机网络是把多个计算机连在一起的网络,互联网是把多个计算机网络连在一起形成的网络,遵守TCP/IP协议.<br>2.路由器是实现分组交换的关键构件,其任务是转发收到的分组.分组交换采用<strong>存储转发技术</strong>.在发送报文之前,将较长的报文<strong>被主机平均分成小的数据段</strong>,并在每个数据段之前加上必要的<strong>控制信息形成首部构成一个分组</strong>,分组也成为包;分组时互联网传送的数据单元,分组的首部包含了目的地址,源地址等重要的信息,所以每个分组能够独立的选择传输路径,并正确交付到传输终点.<strong>==路由器工作在网络层 #F44336==</strong>.<br>3.互联网由边缘部分和核心部分组成.<strong>主机是边缘部分</strong>,负责数据的处理.<strong>核心部分是大量网络和连接这些网络的路由器</strong>,作用是提供连通性和交换.<br>4.计算机网络的通信方式是:<strong>客户-服务器方式(C/S方式)</strong> 和<strong>对等连接方式(P2P方式)</strong>.<br>5.客户和服务器都是指通信中的应用进程,客户是请求方,服务器是提供方.<br>6.按照作用访问不同计算机网络分为:个人区域网(PAN),局域网(LAN),城域网(MAN),广域网(WAN).<br>7.计算机网络最常用的性能指标:速率,带宽,吞吐量,时延(发送时延,处理时延,排队时延),时延带宽积,往返时间和信道利用率.<br>8.计算机网络协议是为数据交换而建立的规则,计算机网络的各层和协议集合,称为网络的体系结构.<br>9.五层体系结构:应用层,运输层,网络层(网际层),数据链路层,物理层组成.<br><strong>交换机工作在数据链路层.</strong> 使用交换机可以减少开销.<br><a target="_blank" rel="noopener" href="https://imgchr.com/i/dKGQ5n"><img src= "/img/loading.gif" data-lazy-src="https://s1.ax1x.com/2020/08/18/dKGQ5n.jpg" alt="交换机"></a><br><strong>集线器工作在物理层</strong>，它没有智能处理能力，对它来说，数据只是电流而已，当一个端口的电流传到集线器中时，它只是简单地将电流传送到其他端口，至于其他端口连接的计算机接收不接收这些数据，它就不管了。<br>五层协议:</p>
+<blockquote>
+<p>（1）应用层：为<strong>特定应用程序提供数据传输服务</strong>，例如 HTTP、DNS 等协议。<strong>数据单位为报文</strong>。<br>（2）传输层：为进程提供通用数据传输服务。包括两种协议：<strong>传输控制协议 TCP</strong>，提供面向连接、可靠的数据传输服务，数据单位为报文段；<strong>用户数据报协议 UDP</strong>，提供无连接、尽最大努力的数据传输服务，数据单位为用户数据报。<strong>TCP 主要提供完整性服务，UDP 主要提供及时性服务</strong>。<br>（3）网络层：为主机提供数据传输服务。而传输层协议是为主机中的进程提供数据传输服务。<strong>网络层把传输层传递下来的报文段或者用户数据报封装成分组。</strong><br>（4）数据链路层：网络层针对的还是主机之间的数据传输服务，而主机之间可以有很多链路，<strong>链路层协议就是为同一链路的主机提供数据传输服务</strong>。数据链路层把网络层传下来的分组封装成帧。<br>（5）物理层：考虑的是怎样在传输媒体上传输数据比特流，而不是指具体的传输媒体。物理层的作用是<strong>尽可能屏蔽传输媒体和通信手段的差异，使数据链路层感觉不到这些差异。</strong></p>
+</blockquote>
+</blockquote>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><blockquote>
+<p>数据(data):运送消息的实体<br>信号(signal):数据转为信号在传输介质上进行传输<br>单工(simplex):只能一个方向通信,没有反向交互<br>半双工(half doublex):双向通信,但不能同时通信<br>全双工(full doublex):可同时双向通信<br>信噪比（signal-to-noise ratio):指信号的平均功率和噪声的平均功率之比，记为S/N。信噪比（dB）=10* log10（S/N）<br>….</p>
+</blockquote>
+<h2 id="重点-1"><a href="#重点-1" class="headerlink" title="重点"></a>重点</h2><blockquote>
+<p>1.物理层的任务:<strong>透明的传播比特流.</strong> 将数据链路层的帧数据转为信号(0,1).<br>2.也可以将物理层的主要任务描述为确定与传输媒体的接口的一些特性，即：机械特性（接口所用接线器的一些物理属性如形状尺寸），电气特性（接口电缆的各条线上出现的电压的范围），功能特性（某条线上出现的某一电平的电压的意义），过程特性（对于不同功能能的各种可能事件的出现顺序）。</p>
+</blockquote>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><blockquote>
+<p>1.数据链路层使用的主要是<strong>点对点信道</strong>和<strong>广播信道</strong>两种。<br>2.数据链路层传输的协议数据单元是帧。数据链路层的三个基本问题是：<strong>封装成帧</strong>，<strong>透明传输</strong>和<strong>差错检测</strong>.<br>3.<strong>点对点协议PPP</strong>是数据链路层使用最多的一种协议，它的特点是：简单，<strong>只检测差错而不去纠正差错</strong>，<strong>不使用序号，也不进行流量控制，可同时支持多种网络层协议</strong>.<br>局域网的优点是：具有广播功能，从一个站点可方便地访问全网；便于系统的扩展和逐渐演变；提高了系统的可靠性，可用性和生存性。</p>
+</blockquote>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><blockquote>
+<p>IP(Internet protocol):网际协议IP是TCP/IP体系中最主要的协议之一,是TCP/IP体系网络层的核心.<br>ARP（Address Resolution Protocol):地址解析协议.<br>子网掩码(subnet mask):子网掩码不能单独存在,和IP配套使用,他是来指明主机所在的子网以及哪些位标识是主机的位掩码.</p>
+</blockquote>
+<h2 id="重点-2"><a href="#重点-2" class="headerlink" title="重点"></a>重点</h2><blockquote>
+<p>1.网络层只向上提供灵活简单的,无连接的,尽最大努力交付的数据包服务,不提供质量保证,不保证分组交付的时限所传送的分组可能出错,丢失,重复和失序.<br>2.一个路由器至少有两个不同的IP地址.IP地址有具体的分类(A,B,C,D,E)<br>3.IP<strong>数据包(分组)由首部和数据两部分组成</strong>,<strong>首部固定大小</strong>20字节.数据包首部的<strong>生存时间给出了此包在互联网中所能经过的最大路由数</strong>,以防止数据包在互联网无限兜圈子.<br>4.ARP(地址解析协议)<strong>把IP地址解析为硬件地址,并且==存储 #F44336==在高速缓存中</strong>,下次主机和相同的地址通信时,可从高速缓存中找到硬件地址,不用再次广播,减少网络的通信量.</p>
+</blockquote>
+<h2 id="IP地址和物理地址的区别"><a href="#IP地址和物理地址的区别" class="headerlink" title="IP地址和物理地址的区别"></a>IP地址和物理地址的区别</h2><blockquote>
+<p>物理地址(MAC)具有唯一性,而IP地址不具有.<br>MAC时网卡或者接口的物理地址,一般不可改变,IP地址是逻辑地址,在同一个子网中具有唯一性.<br>长度不同.MAC48位,IP32位.<br><strong>MAC工作在数据链路层</strong>,IP在网络层及之前的层<br>IP和MAC通过<strong>ARP协议联合在一起</strong>,IP和MAC联合确定主机,并传输信息.</p>
+</blockquote>
+<h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><blockquote>
+<p><strong>运输层提供进程</strong>之间的逻辑通信(添加了进程端口).<strong>网络层为主机</strong>提供逻辑通信(添加IP和MAC)<br><strong>==两个重要协议UDP(用户数据报协议)和TCP(传输控制协议). #F44336==</strong><br>使用TCP的数据单元是<strong>TCP报文段</strong>,使用UDP的数据单元是<strong>用户数据报</strong>.</p>
+</blockquote>
+<h2 id="UDP-用户数据报协议"><a href="#UDP-用户数据报协议" class="headerlink" title="UDP(用户数据报协议)"></a>UDP(用户数据报协议)</h2><blockquote>
+<p><strong>UDP是不可靠交付,传输数据不需要先建立连接,收到用户数据报后也不需要给出确定.</strong><br>UDP的主要特点是<strong>①无连接②尽最大努力交付(不保证质量)③面向报文④无拥塞控制⑤支持一对一，一对多，多对一和多对多的交互通信⑥首部开销小</strong>（只有四个字段：源端口，目的端口，长度和检验）</p>
+</blockquote>
+<h2 id="TCP-传输控制协议"><a href="#TCP-传输控制协议" class="headerlink" title="TCP(传输控制协议)"></a>TCP(传输控制协议)</h2><blockquote>
+<p>TCP是可靠交付,需要先连接(<strong>三次握手)</strong>,收到会确认,关闭也会确认(<strong>四次挥手</strong>).<br>TCP的主要特点是<strong>①面向连接②每一条TCP连接只能是一对一的③提供可靠交付(保证质量)④提供全双工通信⑤面向字节流</strong><br>TCP <strong>==不提供广播或多播服务 #03A9F4==**。由于TCP要提供可靠的，面向连接的传输服务，这一难以避免增加了许多开销，如</strong>确认，流量控制，计时器以及连接管理<strong>等。这不仅使协议数据单元的首部增大很多，还要</strong>占用许多处理机资源<strong>。<br>TCP **==采用停止等待协议 #03A9F4==</strong>,停止等待协议是为了实现可靠传输的，它的基本原理就是<strong>每发完一个分组就停止发送，等待对方确认</strong>。在收到确认后再发下一个分组。可采用<strong>流水线传输</strong>提高效率.<br>停止等待协议中的<strong>超时重传</strong>是为了防止分组丢失造成数据缺失而设立的.<br>TCP首部<strong>最短20字节</strong>.<br>TCP <strong>==采用滑动窗口机制 #03A9F4==</strong>,发送窗口的序号表示可以发送的分组,<strong>没有收到确认回复,滑动窗口不会动,收到确认回复后滑动窗口会向前移发送新的分组.</strong><br>TCP <strong>==采用流量控制 #03A9F4==</strong>,防止接收方来不及接受数据,导致数据缺失.<br>TCP <strong>==采用拥塞控制 #03A9F4==</strong>, 防止过多的数据进入网络中,防止路由器或者链路过载.<br>TCP三阶段,连接建立,数据传输,连接释放.</p>
+</blockquote>
+<h2 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h2><blockquote>
+<p>为了进行拥塞控制,TCP发送方需要维持一个拥塞窗口cwnd的状态变量.发送方的发送窗口取拥塞窗口和接收方接收窗口<strong>较小</strong>的一个.<br>以四种方法减少拥塞,<strong>慢开始,拥塞避免,快重传,快恢复.</strong></p>
+</blockquote>
+<p>##复习重点</p>
+<blockquote>
+<p>1.<strong>==端口是进程的,套接字是IP+端口形成的 #F44336==</strong>;套接字是为了区分不同进程的连接而提供的接口.<br><strong>==UDP的特点 #F44336==</strong><br><strong>==TCP的特点 #F44336==</strong><br><strong>==停止等待协议和ARQ协议(自动重传协议,有计时器) #F44336==</strong><br><strong>==滑动窗口,流量控制,拥塞控制,连接管理(三次握手,传输数据,四次挥手 #F44336==</strong>)</p>
+</blockquote>
+<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><blockquote>
+<p>1.DNS(域名系统):万维网域名和IP互相映射的分布式数据库.<br>2.url(统一资源定位符):每个万维网的资源都有自己的url地址<br>HTTP(超文本传输协议)<br>http请求头:HTTP客户端向服务器发送请求时必须指明类型.</p>
+</blockquote>
+<h2 id="重点-3"><a href="#重点-3" class="headerlink" title="重点"></a>重点</h2><blockquote>
+<p>1.文件传输协议(FTP),采用TCP协议(可靠)。<br>2.域名系统(DNS):从域名中解析出IP地址<br>3.访问一个网站的大致过程。</p>
+<blockquote>
+<p>1.浏览器根据输入的url，在域名系统中查找该url对应的IP地址。</p>
+<blockquote>
+<p>1.对url进行解析是首先使用给RP协议获取<strong>默认网关的MAC</strong>。<br>2.得到默认网关MAC后，将数据发给默认网关，<strong>默认网关转发给路由器</strong>。<br>3.路由器根据<strong>路由选择算法</strong>，选择适合的路径转发数据给<strong>目的网关</strong>。<br>4.目的网关（DNS所在的网关）将数据发给<strong>DNS服务器</strong>。<br>5.DNS服务器查询<strong>解析url对应的IP，然后返回给浏览器</strong>。<br>2.得到IP地址后，传输层与该IP地址的服务器主机三次握手建立连接。<br>3.使用http协议发送请求数据给服务器主机。<br>4.服务器主机查询收到数据请求后，查询本地结果，然后将结果原路返回给浏览器。<br>5.浏览器进行渲染并显示。<br>6.四次挥手关闭tcp连接。<br>4.系统调用和应用编程接口的概念。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/dB1YbF"><img src= "/img/loading.gif" data-lazy-src="https://s1.ax1x.com/2020/08/23/dB1YbF.png" alt="三次握手"></a></p>
+<blockquote>
+<p>客户端–发送带有 SYN 标志的数据包–一次握手–服务端<br>服务端–发送带有 SYN/ACK 标志的数据包–二次握手–客户端<br>客户端–发送带有带有 ACK 标志的数据包–三次握手–服务端</p>
+</blockquote>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/dB1JDU"><img src= "/img/loading.gif" data-lazy-src="https://s1.ax1x.com/2020/08/23/dB1JDU.jpg" alt="四次挥手"></a></p>
+<blockquote>
+<p>主动关闭方返送FIN给被动关闭方，进入半关闭状态，被动关闭方收到FIN。<br>被动关闭方还有暑假发送，先传给主动关闭方ack。<br>被动关闭方发送完数据，发送FIN给主动关闭方，并关闭。<br>主动关闭方收到FIN进入等待时间，并发送ack给被动关闭方。<br>主动关闭方等待时间内没有收到信息，进行关闭。</p>
+</blockquote>
+<h2 id="ARQ协议是自动回传协议，在TCP中"><a href="#ARQ协议是自动回传协议，在TCP中" class="headerlink" title="ARQ协议是自动回传协议，在TCP中"></a>ARQ协议是自动回传协议，在TCP中</h2><h2 id="ARP协议是地址转换协议，在IP层"><a href="#ARP协议是地址转换协议，在IP层" class="headerlink" title="ARP协议是地址转换协议，在IP层"></a>ARP协议是地址转换协议，在IP层</h2><h2 id="HTTP协议不保存状态，是使用session机制进行状态保存"><a href="#HTTP协议不保存状态，是使用session机制进行状态保存" class="headerlink" title="HTTP协议不保存状态，是使用session机制进行状态保存"></a>HTTP协议不保存状态，是使用session机制进行状态保存</h2><h2 id="session和cookie的区别"><a href="#session和cookie的区别" class="headerlink" title="session和cookie的区别"></a>session和cookie的区别</h2><blockquote>
+<p>session是通过服务端记录用户的状态，比如标识是哪个用户的操作，信息保存在服务端。<br>cookie是通过用户端记录用户的信息，比如账号密码等，信息保存在用户端。</p>
+</blockquote>
+<h2 id="http和https的区别"><a href="#http和https的区别" class="headerlink" title="http和https的区别"></a>http和https的区别</h2><blockquote>
+<p>http由 http:// 开始并且默认端口是80.<br>https由 https:// 开始并且默认端口是443.<br>http是基于HTTP的协议，传输的都是明文，客户端和服务端无法验证对方身份。<br>https是基于SSL/TLS之上的HTTP协议，所有的传输都经过加密。所以https安全性更高，但是耗费的服务器资源也更大。</p>
+</blockquote>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:941053666@qq.com">Hou Gall</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hougall.github.io/2020/08/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/">http://hougall.github.io/2020/08/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://HouGall.github.io" target="_blank">Hou Gall's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/08/24/python%E9%97%AE%E9%A2%984/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">python问题4</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/14/01背包问题/" title="01背包问题"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-14</div><div class="relatedPosts_title">01背包问题</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/24/java学习1/" title="java学习1"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="relatedPosts_title">java学习1</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/15/python 函数传值机制/" title="python 函数传值机制"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-15</div><div class="relatedPosts_title">python 函数传值机制</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/17/python问题1/" title="python问题1"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="relatedPosts_title">python问题1</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/24/python问题4/" title="python问题4"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="relatedPosts_title">python问题4</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/17/python问题3/" title="python问题3"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="relatedPosts_title">python问题3</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By Hou Gall</div><div class="footer_custom_text">Hi, welcome to my <a href="https://HouGall.github.io/">blog</a>!</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

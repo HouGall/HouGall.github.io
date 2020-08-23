@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>python问题4 | Hou Gall's blog</title><meta name="description" content="垃圾回收机制 python中的垃圾回收机制和java类似，采用的机制是以引用计数为主，标记-清除和分代收集为辅的策略。  引用计数 python中所有的东西都是对象，他们的核心既是一个结构体，即pyobject，其结构体是:  1234typedef struct_object &amp;#123;    int ob_refcnt;    struct_typeobject *ob_type;&amp;#125"><meta name="keywords" content="求职,java"><meta name="author" content="Hou Gall,941053666@qq.com"><meta name="copyright" content="Hou Gall"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hougall.github.io/2020/08/24/python%E9%97%AE%E9%A2%984/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="python问题4"><meta property="og:url" content="http://hougall.github.io/2020/08/24/python%E9%97%AE%E9%A2%984/"><meta property="og:site_name" content="Hou Gall's blog"><meta property="og:description" content="垃圾回收机制 python中的垃圾回收机制和java类似，采用的机制是以引用计数为主，标记-清除和分代收集为辅的策略。  引用计数 python中所有的东西都是对象，他们的核心既是一个结构体，即pyobject，其结构体是:  1234typedef struct_object &amp;#123;    int ob_refcnt;    struct_typeobject *ob_type;&amp;#125"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-08-23T16:54:32.257Z"><meta property="article:modified_time" content="2020-08-23T16:54:32.258Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-24 00:54:32'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">21</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text">垃圾回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">引用计数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">引用计数的优缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4-%E4%B8%BB%E8%A6%81%E7%94%A8%E6%9D%A5%E5%A4%84%E7%90%86%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8-F44336"><span class="toc-number">1.2.</span> <span class="toc-text">标记-清除 - &#x3D;&#x3D;主要用来处理循环引用 #F44336&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%A0%87%E8%AE%B0"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">如何标记</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E5%9B%9E%E6%94%B6%E4%B8%BB%E8%A6%81%E6%B8%85%E9%99%A4%E4%B8%80%E4%BA%9B%E5%AE%B9%E5%99%A8%E5%8F%98%E9%87%8F%EF%BC%8C%E5%A6%82list%EF%BC%8Cdict%EF%BC%8Ctuple%EF%BC%8Cinstance-%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">标记清除回收主要清除一些容器变量，如list，dict，tuple，instance(实例).</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E5%9B%9E%E6%94%B6-%E5%A4%84%E7%90%86%E9%81%8D%E5%8E%86%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E6%80%A7%E8%83%BD%E6%B5%AA%E8%B4%B9-%E4%BB%A5%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8%E8%BF%9B%E8%A1%8C%E7%BB%B4%E6%8A%A4-F44336"><span class="toc-number">1.3.</span> <span class="toc-text">分代回收 -&#x3D;&#x3D;处理遍历有向图的性能浪费(以双向链表进行维护) #F44336&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E5%9F%BA%E4%BA%8E%E7%9A%84%E6%80%9D%E6%83%B3%E6%98%AF%EF%BC%8C-%E6%96%B0%E7%94%9F%E7%9A%84%E5%AF%B9%E8%B1%A1%E6%9B%B4%E6%9C%89%E5%8F%AF%E8%83%BD%E8%A2%AB%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%EF%BC%8C%E8%80%8C%E5%AD%98%E6%B4%BB%E6%9B%B4%E4%B9%85%E7%9A%84%E5%AF%B9%E8%B1%A1%E4%B9%9F%E6%9C%89%E6%9B%B4%E9%AB%98%E7%9A%84%E6%A6%82%E7%8E%87%E7%BB%A7%E7%BB%AD%E5%AD%98%E6%B4%BB-F44336-%E3%80%82%E5%9B%A0%E6%AD%A4%EF%BC%8C%E9%80%9A%E8%BF%87%E8%BF%99%E7%A7%8D%E5%81%9A%E6%B3%95%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%8A%82%E7%BA%A6%E4%B8%8D%E5%B0%91%E8%AE%A1%E7%AE%97%E9%87%8F%EF%BC%8C%E4%BB%8E%E8%80%8C%E6%8F%90%E9%AB%98-Python-%E7%9A%84%E6%80%A7%E8%83%BD%E3%80%82"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">分代收集基于的思想是，&#x3D;&#x3D;新生的对象更有可能被垃圾回收，而存活更久的对象也有更高的概率继续存活 #F44336&#x3D;&#x3D;。因此，通过这种做法，可以节约不少计算量，从而提高 Python 的性能。</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hou Gall's blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">python问题4</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T16:54:32.257Z" title="发表于 2020-08-24 00:54:32">2020-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T16:54:32.258Z" title="更新于 2020-08-24 00:54:32">2020-08-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h1><blockquote>
+<p>python中的垃圾回收机制和java类似，采用的机制是以引用计数为主，标记-清除和分代收集为辅的策略。</p>
+</blockquote>
+<h2 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h2><blockquote>
+<p>python中所有的东西都是对象，他们的核心既是一个结构体，即pyobject，其结构体是:</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> struct_object &#123;</span><br><span class="line">    <span class="keyword">int</span> ob_refcnt;</span><br><span class="line">    struct_typeobject *ob_type;</span><br><span class="line">&#125; PyObject;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>pyobject是每个对象都有的内容，其中ob_refcnt即使引用计数，每当对象有新的引用时，那么ob_refcnt就会+1，对象被销毁时，ob_refcnt-1，当ob_refcnt减少为0时，此对象生命就结束了。ob_refcnt指的是有多少个对象使用此引用，<strong>代表指针数</strong>。</p>
+</blockquote>
+<h4 id="引用计数的优缺点"><a href="#引用计数的优缺点" class="headerlink" title="引用计数的优缺点"></a>引用计数的优缺点</h4><blockquote>
+<p>优点：</p>
+<blockquote>
+<p>1.高效<br>2.实时性。可以将回收时间分散到平时，不用等到回收的特定时机。</p>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<p>引用计数小号资源<br>循环引用，会导致内存泄漏，需要其他的回收机制。</p>
+</blockquote>
+</blockquote>
+<h2 id="标记-清除-主要用来处理循环引用-F44336"><a href="#标记-清除-主要用来处理循环引用-F44336" class="headerlink" title="标记-清除 - ==主要用来处理循环引用 #F44336=="></a>标记-清除 - <strong>==主要用来处理循环引用 #F44336==</strong></h2><blockquote>
+<p>是一种基于追踪回收算法的垃圾回收机制，有两阶段：<br>第一阶段是对所有的活动对象打上标记；<br>第二阶段是对无标记的对象进行清除。</p>
+</blockquote>
+<h4 id="如何标记"><a href="#如何标记" class="headerlink" title="如何标记"></a>如何标记</h4><blockquote>
+<p>对象之间的引用通过指针连接在一起，因此可以以对象为节点，引用关系为边，构造有向图，通过便利有向图，来标记活动对象。<strong>根对象就是全局变量、调用栈、寄存器</strong>。其中可达的对象是活动对象，不可达的是未活动对象。</p>
+</blockquote>
+<h4 id="标记清除回收主要清除一些容器变量，如list，dict，tuple，instance-实例"><a href="#标记清除回收主要清除一些容器变量，如list，dict，tuple，instance-实例" class="headerlink" title="标记清除回收主要清除一些容器变量，如list，dict，tuple，instance(实例)."></a>标记清除回收主要清除一些容器变量，如list，dict，tuple，instance(实例).</h4><h2 id="分代回收-处理遍历有向图的性能浪费-以双向链表进行维护-F44336"><a href="#分代回收-处理遍历有向图的性能浪费-以双向链表进行维护-F44336" class="headerlink" title="分代回收 -==处理遍历有向图的性能浪费(以双向链表进行维护) #F44336=="></a>分代回收 -<strong>==处理遍历有向图的性能浪费(以双向链表进行维护) #F44336==</strong></h2><blockquote>
+<p>分代回收分为<strong>3代</strong>。<br>每次引用一个对象，python都会将其加入到零代的双向链表中。<br>随后，python会循环遍历零代列表的每个对象，检查每个对象的互相引用，并依据规则减少引用计数，进行垃圾回收，将存在的对象移到下一代(一代)。<br>当出发一代的回收阈值时，再次进行遍历一代列表，减少引用计数后垃圾回收，将存在的移到下一代（二代）。</p>
+</blockquote>
+<h4 id="分代收集基于的思想是，-新生的对象更有可能被垃圾回收，而存活更久的对象也有更高的概率继续存活-F44336-。因此，通过这种做法，可以节约不少计算量，从而提高-Python-的性能。"><a href="#分代收集基于的思想是，-新生的对象更有可能被垃圾回收，而存活更久的对象也有更高的概率继续存活-F44336-。因此，通过这种做法，可以节约不少计算量，从而提高-Python-的性能。" class="headerlink" title="分代收集基于的思想是，==新生的对象更有可能被垃圾回收，而存活更久的对象也有更高的概率继续存活 #F44336==。因此，通过这种做法，可以节约不少计算量，从而提高 Python 的性能。"></a>分代收集基于的思想是，==新生的对象更有可能被垃圾回收，而存活更久的对象也有更高的概率继续存活 #F44336==。因此，通过这种做法，可以节约不少计算量，从而提高 Python 的性能。</h4></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:941053666@qq.com">Hou Gall</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hougall.github.io/2020/08/24/python%E9%97%AE%E9%A2%984/">http://hougall.github.io/2020/08/24/python%E9%97%AE%E9%A2%984/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://HouGall.github.io" target="_blank">Hou Gall's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机网络1</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/24/java%E5%AD%A6%E4%B9%A01/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">java学习1</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/08/24/java学习1/" title="java学习1"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-24</div><div class="relatedPosts_title">java学习1</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/11/数组第六题/" title="剑指 offer 13 机器人运动范围"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-11</div><div class="relatedPosts_title">剑指 offer 13 机器人运动范围</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/14/01背包问题/" title="01背包问题"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-14</div><div class="relatedPosts_title">01背包问题</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/15/python 函数传值机制/" title="python 函数传值机制"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-15</div><div class="relatedPosts_title">python 函数传值机制</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/17/python问题1/" title="python问题1"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="relatedPosts_title">python问题1</div></div></a></div><div class="relatedPosts_item"><a href="/2020/08/17/python问题3/" title="python问题3"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-17</div><div class="relatedPosts_title">python问题3</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By Hou Gall</div><div class="footer_custom_text">Hi, welcome to my <a href="https://HouGall.github.io/">blog</a>!</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
