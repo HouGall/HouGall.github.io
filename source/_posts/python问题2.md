@@ -1,6 +1,6 @@
 ---
 title: python问题2
-data: 2020-8-1612:50:18
+data: 2020-8-15 12:50:18
 tags:
  - python
  - 求职
