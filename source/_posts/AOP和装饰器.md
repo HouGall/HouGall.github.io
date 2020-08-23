@@ -1,6 +1,6 @@
 ---
-title:AOP和装饰器
-data: 2020-8-15 12:50:18
+title: python问题6
+data: 2020-8-16 8:50:18
 tags:
  - python
  - 求职
