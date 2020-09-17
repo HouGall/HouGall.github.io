@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hou Gall's blog - 记录生活中的点点滴滴</title><meta name="description" content="记录生活中的点点滴滴"><meta name="keywords" content="学习&amp;记录"><meta name="author" content="Hou Gall,941053666@qq.com"><meta name="copyright" content="Hou Gall"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://hougall.github.io/page/4/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Hou Gall's blog"><meta property="og:url" content="http://hougall.github.io/page/4/"><meta property="og:site_name" content="Hou Gall's blog"><meta property="og:description" content="记录生活中的点点滴滴"><meta property="og:image" content="http://hougall.github.io/img/touxiang.jpg"><meta property="article:published_time" content="2020-09-17T15:21:39.126Z"><meta property="article:modified_time" content="2020-09-17T15:21:39.126Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-09-17 23:21:39'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 5.0.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">Hou Gall's blog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-heart"></i><span> 留言板</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Hou Gall's blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/HouGall" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:941053666@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/24/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" title="01背包问题">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="01背包问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/24/01%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" title="01背包问题">01背包问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T17:11:51.682Z" title="发表于 2020-08-24 01:11:51">2020-08-24</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T17:11:51.682Z" title="更新于 2020-08-24 01:11:51">2020-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E4%BC%98%E5%8C%96/">优化</a></span></div><div class="content">问题
+0-1 背包问题：给定 n 种物品和一个容量为 C 的背包，物品 i 的重量是 w[i]**，其价值为 **v[i] 。问：应该如何选择装入背包的物品，使得装入背包中的物品的总价值最大？
+
+思考
+面对每个物品，我们只有选择拿取或者不拿两种选择，不能选择装入某物品的一部分，也不能装入同一物品多次。
+
+思路
+解决办法：声明一个 大小为  m[n][c]的二维数组，m[ i ][ j] 表示 在面对第 i 件物品，且背包容量为  j 时所能获得的最大价值 ，那么我们可以很容易分析得出 m[i][j] 的计算方法:（1）. j &lt; w[i] 的情况，这时候背包容量不足以放下第 i 件物品，只能选择不拿,因此m[ i ][ j ] = m[ i-1 ][ j ]。（2）. j&gt;=w[i] 的情况，这时背包容量可以放下第 i 件物品，我们就要考虑拿这件物品是否能获取更大的价值。如果拿取，m[ i ][ j ]=m[ i-1 ][ j-w[ i ] ] + v[ i ]**。 这里的m[ i-1 ][ j-w[ i ] ]** 指的就是考虑了i-1件物品，背包容量为j-w[i] 时 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/24/AOP%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8/" title="python问题6">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python问题6"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/24/AOP%E5%92%8C%E8%A3%85%E9%A5%B0%E5%99%A8/" title="python问题6">python问题6</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T17:11:51.682Z" title="发表于 2020-08-24 01:11:51">2020-08-24</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T17:11:51.682Z" title="更新于 2020-08-24 01:11:51">2020-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a></span></div><div class="content">AOP
+简言之、这种在运行时，编译时，类和方法加载时，动态地将代码切入到类的指定方法、指定位置上的编程思想就是面向切面的编程。我们管切入到指定类指定方法的代码片段称为切面，而切入到哪些类、哪些方法则叫切入点。有了AOP，我们就可以把几个类共有的代码，抽取到一个切片中，等到需要时再切入对象中去，从而改变其原有的行为。
+
+装饰器
+装饰器的作用就是为已经存在的对象添加额外的功能。装饰器是一个很著名的设计模式，经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、事务处理等。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量函数中与函数功能本身无关的雷同代码并继续重用。
+
+手写装饰器1234567891011121314151617181920212223242526272829303132333435363738# 装饰器就是把其他函数作为参数的函数def my_new_decorator(a_function_to_decorate):    # 在函数里面,装饰器在运行中定义函数: 包装.    # 这个函数将被包装在原始函数的外面,所以可以在原始函数之前和之后执行其 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/11/%E6%95%B0%E7%BB%84%E7%AC%AC%E4%B8%80%E9%A2%98/" title="python-剑指offer编程——数组">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python-剑指offer编程——数组"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/11/%E6%95%B0%E7%BB%84%E7%AC%AC%E4%B8%80%E9%A2%98/" title="python-剑指offer编程——数组">python-剑指offer编程——数组</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-11T10:10:18.000Z" title="发表于 2020-08-11 18:10:18">2020-08-11</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T17:11:51.687Z" title="更新于 2020-08-24 01:11:51">2020-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%89%91%E6%8C%87offer/">剑指offer</a></span></div><div class="content">第一题——数组中的重复数字：
+在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
+
+思路及代码：思路：思路一：解决这个为题的简单方法就是把数组整个排序，从排序的数组中找出一个重复的数字是非常容易的，那么排序一个长度为n的数组需要的**时间复杂度O(nlogn)**。使用时间有点长，不符合题目时间要求。
+思路二：还可以用哈希表的方式来查询，从头到尾按顺序扫描整个数组，每扫描一个数字就需要用O(1)的时间来判断此数字是否在哈希表中；如果此数字不在哈希表中，则将此数字加入哈希表，若此数字在哈希表中，则找到了这个重复数字。真个程序所需要的时间复杂度是O(n)**，但它降低时间复杂度的代价就是使用了一个大小为O(n)的空间复杂度**。所用空间大，不符合题目空间要求。
+思路三：通过题目注意到n维数组其中的所有数字都在0到n-1之间，那么可以理解为，如果这个数组中每个元素都不重复的话，经 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/10/12/%E6%95%B0%E7%BB%84%E7%AC%AC%E5%9B%9B%E9%A2%98/" title="剑指 offer 04 数组中重复的数字">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="剑指 offer 04 数组中重复的数字"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/10/12/%E6%95%B0%E7%BB%84%E7%AC%AC%E5%9B%9B%E9%A2%98/" title="剑指 offer 04 数组中重复的数字">剑指 offer 04 数组中重复的数字</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-12T04:10:18.000Z" title="发表于 2019-10-12 12:10:18">2019-10-12</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-23T17:11:51.689Z" title="更新于 2020-08-24 01:11:51">2020-08-24</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%B1%82%E8%81%8C/">求职</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/python/">python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%B1%82%E8%81%8C/">求职</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%89%91%E6%8C%87offer/">剑指offer</a></span></div><div class="content">二维数组查找
+在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+
+
+示例：矩阵matrix=[  [1,   4,  7, 11, 15],  [2,   5,  8, 12, 19],  [3,   6,  9, 16, 22],  [10, 13, 14, 17, 24],  [18, 21, 23, 26, 30]]给定target = 5，返回 true;给定target = 20，返回false.
+
+思路方法一 暴力寻找
+从数组首位开始，每一行每一列循环寻找target，如果找到返回true，如果循环完没找到返回false。时间复杂度O(mn)空间复杂度O(1)
+
+方法二 游走查找
+考虑到二维表从左到右递增，从上到下递减，所以要砸好一个数可以用两个判断语句控制下标的游走方法，初始化游走的开始节点为数组的右上方num[0][m] (假设此数组是nxm)**，可以知道此节点数组比同一行的数都大，比同一列的数都小，所以可以判断此数字和target的大 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Hou Gall</div><div class="author-info__description">记录生活中的点点滴滴</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">34</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">14</div></a></div><div class="card-info-data-item is-center"><a href="/categories"><div class="headline">分类</div><div class="length_num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/HouGall"><i class="fab fa-github"></i><span>github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/HouGall" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:941053666@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A01-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" title="操作系统学习1-虚拟内存"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统学习1-虚拟内存"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A01-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98/" title="操作系统学习1-虚拟内存">操作系统学习1-虚拟内存</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T15:03:08.364Z" title="发表于 2020-09-17 23:03:08">2020-09-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A82/" title="环形链表2"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="环形链表2"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A82/" title="环形链表2">环形链表2</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T15:03:08.364Z" title="发表于 2020-09-17 23:03:08">2020-09-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A02/" title="MySQL数据库学习2"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL数据库学习2"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%A6%E4%B9%A02/" title="MySQL数据库学习2">MySQL数据库学习2</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T15:03:08.363Z" title="发表于 2020-09-17 23:03:08">2020-09-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/java%E5%AD%A6%E4%B9%A01-%E5%B8%B8%E8%AF%86/" title="java学习1-常识"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="java学习1-常识"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/java%E5%AD%A6%E4%B9%A01-%E5%B8%B8%E8%AF%86/" title="java学习1-常识">java学习1-常识</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T15:03:08.363Z" title="发表于 2020-09-17 23:03:08">2020-09-17</time></div></div><div class="aside-recent-post"><a class="aside-post-cover" href="/2020/09/17/linux%E5%AD%A6%E4%B9%A01-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="linux学习1-常用命令"><img class="aside-post-bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="linux学习1-常用命令"/></a><div class="aside-post-info"><a class="aside-post-title" href="/2020/09/17/linux%E5%AD%A6%E4%B9%A01-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="linux学习1-常用命令">linux学习1-常用命令</a><time class="aside-post_meta post-meta-date" datetime="2020-09-17T15:03:08.363Z" title="发表于 2020-09-17 23:03:08">2020-09-17</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/"><span class="card-category-list-name">学习资料</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B1%82%E8%81%8C/"><span class="card-category-list-name">求职</span><span class="card-category-list-count">31</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Linux/" style="font-size: 16px; color: #999">Linux</a> <a href="/tags/c/" style="font-size: 16px; color: #999">c++</a> <a href="/tags/java/" style="font-size: 19px; color: #99a1ac">java</a> <a href="/tags/leetcode/" style="font-size: 16px; color: #999">leetcode</a> <a href="/tags/linux/" style="font-size: 16px; color: #999">linux</a> <a href="/tags/python/" style="font-size: 21px; color: #99a6b9">python</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 16px; color: #999">优化</a> <a href="/tags/%E5%89%91%E6%8C%87offer/" style="font-size: 20px; color: #99a4b2">剑指offer</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 18px; color: #999ea6">操作系统</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E7%9F%A5%E8%AF%86/" style="font-size: 16px; color: #999">数学知识</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 17px; color: #999c9f">数据库</a> <a href="/tags/%E6%B1%82%E8%81%8C/" style="font-size: 22px; color: #99a9bf">求职</a> <a href="/tags/%E7%BD%91%E4%B8%8A%E4%BC%98%E8%B4%A8%E8%B5%84%E6%BA%90/" style="font-size: 17px; color: #999c9f">网上优质资源</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 16px; color: #999">计算机网络</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">20</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/10/"><span class="card-archive-list-date">十月 2019</span><span class="card-archive-list-count">1</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">34</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By Hou Gall</div><div class="footer_custom_text">Hi, welcome to my <a href="https://HouGall.github.io/">blog</a>!</div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><div class="js-pjax"><script>function subtitleType () {
+  $.getJSON('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json',function (data) {
+    if (true) {
+      var sub = "Never put off till tomorrow what you can do today".length == 0 ? new Array() : "Never put off till tomorrow what you can do today".split(',')
+      var both = sub.unshift(data.text)
+      typed = new Typed('#subtitle', {
+        strings: sub,
+        startDelay: 300,
+        typeSpeed: 150,
+        loop: false,
+        backSpeed: 50,
+      })
+    } else {
+      document.getElementById('subtitle').innerHTML = data.text
+    }
+  })
+}
+
+if (true) {
+  if (typeof Typed === 'function') subtitleType()
+  else $.getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js', subtitleType)
+} else {
+  subtitleType()
+}
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
